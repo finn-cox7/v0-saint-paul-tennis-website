@@ -1,5 +1,3 @@
-"use client"
-
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
@@ -31,13 +29,10 @@ export default function HoursRulesPage() {
                 Daily from 6:00 a.m. - 9:00 p.m. or Sunset (whichever is earlier)
               </h3>
 
-              <div className="mt-8 flex justify-left mt-8">
+              <div className="mt-8 flex justify-left">
                 <Link
                   href="/swim/schedule"
-                  className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white rounded-lg transition-colors"
-                  style={{ backgroundColor: "#5a7d5d" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                  className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white rounded-lg transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
                 >
                   Pool Schedule
                 </Link>

@@ -1,8 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Users, Trophy, Waves } from "lucide-react"
+import { Users, Trophy, Waves, type LucideIcon } from "lucide-react"
 import Image from "next/image"
 
-const features = [
+type FeatureIcon = LucideIcon | "whistle-svg"
+
+interface Feature {
+  icon: FeatureIcon
+  title: string
+  description: string
+}
+
+const features: Feature[] = [
   {
     icon: Trophy,
     title: "Great Tennis Courts",
@@ -19,7 +27,7 @@ const features = [
     description: "Get to know your neighbors through social events, friendly matches, and family activities.",
   },
   {
-    icon: "whistle-svg" as any,
+    icon: "whistle-svg",
     title: "Education",
     description: "Both swim and tennis lessons available for people of all skill sets and ages, all summer long",
   },
@@ -37,7 +45,6 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => {
             const isWhistleSvg = feature.icon === "whistle-svg"
-            const Icon = isWhistleSvg ? null : feature.icon
 
             return (
               <Card key={index} className="border-0 shadow-none bg-transparent group cursor-pointer">
@@ -53,7 +60,10 @@ export default function FeaturesSection() {
                           className="group-hover:brightness-0 group-hover:invert transition-all"
                         />
                       ) : (
-                        Icon && <Icon className="h-8 w-8 group-hover:text-white transition-colors" />
+                        (() => {
+                          const Icon = feature.icon as LucideIcon
+                          return <Icon className="h-8 w-8 group-hover:text-white transition-colors" />
+                        })()
                       )}
                     </div>
                   </div>

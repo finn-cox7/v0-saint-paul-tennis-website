@@ -19,6 +19,17 @@ type CheckoutItem = {
   type: "event" | "lesson" | "enrollment" | "item"
 }
 
+type StoredEvent = {
+  id: number
+  title: string
+  date: string
+  time: string
+  slots: number
+  price: number
+  category: "swim" | "tennis" | "social"
+  description: string
+}
+
 const categoryColors = {
   swim: "bg-blue-100 text-blue-800 border-blue-300",
   tennis: "bg-green-100 text-green-800 border-green-300",
@@ -41,13 +52,17 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     if (eventId) {
-      const storedEvents = localStorage.getItem("sptc_events")
-      if (storedEvents) {
-        const events = JSON.parse(storedEvents)
-        const foundEvent = events.find((e: any) => e.id === Number.parseInt(eventId))
-        if (foundEvent) {
-          setItem({ ...foundEvent, type: "event" })
+      try {
+        const storedEvents = localStorage.getItem("sptc_events")
+        if (storedEvents) {
+          const events: StoredEvent[] = JSON.parse(storedEvents)
+          const foundEvent = events.find((e) => e.id === Number.parseInt(eventId))
+          if (foundEvent) {
+            setItem({ ...foundEvent, type: "event" })
+          }
         }
+      } catch {
+        // Invalid JSON in localStorage, ignore
       }
     } else if (title && price) {
       setItem({
@@ -67,13 +82,17 @@ export default function CheckoutPage() {
 
     setTimeout(() => {
       if (item.type === "event" && eventId) {
-        const storedEvents = localStorage.getItem("sptc_events")
-        if (storedEvents) {
-          const events = JSON.parse(storedEvents)
-          const updatedEvents = events.map((e: any) =>
-            e.id === item.id ? { ...e, slots: Math.max(0, e.slots - 1) } : e,
-          )
-          localStorage.setItem("sptc_events", JSON.stringify(updatedEvents))
+        try {
+          const storedEvents = localStorage.getItem("sptc_events")
+          if (storedEvents) {
+            const events: StoredEvent[] = JSON.parse(storedEvents)
+            const updatedEvents = events.map((e) =>
+              e.id === item.id ? { ...e, slots: Math.max(0, e.slots - 1) } : e,
+            )
+            localStorage.setItem("sptc_events", JSON.stringify(updatedEvents))
+          }
+        } catch {
+          // Invalid JSON in localStorage, ignore
         }
       }
 
@@ -100,10 +119,7 @@ export default function CheckoutPage() {
             <h1 className="text-2xl font-bold mb-4">Item not found</h1>
             <button
               onClick={() => router.push(returnUrl)}
-              className="px-6 py-2 rounded-md text-white font-medium transition-colors"
-              style={{ backgroundColor: "#5a7d5d" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+              className="px-6 py-2 rounded-md text-white font-medium transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
             >
               Go Back
             </button>
@@ -241,10 +257,7 @@ export default function CheckoutPage() {
               <button
                 onClick={handlePayment}
                 disabled={isProcessing}
-                className="flex-1 px-6 py-3 rounded-md text-white font-medium transition-colors flex items-center justify-center gap-2"
-                style={{ backgroundColor: "#5a7d5d" }}
-                onMouseEnter={(e) => !isProcessing && (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                onMouseLeave={(e) => !isProcessing && (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                className="flex-1 px-6 py-3 rounded-md text-white font-medium transition-colors flex items-center justify-center gap-2 bg-[#5a7d5d] hover:bg-[#4a6d4d] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <CreditCard className="h-5 w-5" />
                 {isProcessing ? "Processing..." : `Pay $${item.price.toFixed(2)}`}

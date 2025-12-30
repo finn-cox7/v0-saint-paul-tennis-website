@@ -1,5 +1,3 @@
-"use client"
-
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
@@ -59,10 +57,7 @@ export default function ClubOverviewPage() {
         <div className="container mx-auto px-4 pb-16 flex justify-center">
           <Link
             href="/membership"
-            className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white rounded-lg transition-colors"
-            style={{ backgroundColor: "#5a7d5d" }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+            className="inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-white rounded-lg transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
           >
             Join Today
           </Link>

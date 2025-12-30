@@ -127,10 +127,15 @@ export default function EventsPage() {
   })
 
   useEffect(() => {
-    const storedEvents = localStorage.getItem("sptc_events")
-    if (storedEvents) {
-      setEventsList(JSON.parse(storedEvents))
-    } else {
+    try {
+      const storedEvents = localStorage.getItem("sptc_events")
+      if (storedEvents) {
+        setEventsList(JSON.parse(storedEvents))
+      } else {
+        localStorage.setItem("sptc_events", JSON.stringify(initialEvents))
+      }
+    } catch {
+      // Invalid JSON in localStorage, use initial events
       localStorage.setItem("sptc_events", JSON.stringify(initialEvents))
     }
   }, [])
@@ -161,10 +166,7 @@ export default function EventsPage() {
     })
 
   const handleAddEvent = () => {
-    console.log("[v0] New event data:", newEvent)
-    const slots = Number(newEvent.slots) // <- force numeric
-    console.log("[v0] Slots value (number):", slots, "Type:", typeof slots)
-    console.log("[v0] Slots <= 0?", !(Number.isFinite(slots) && slots > 0))
+    const slots = Number(newEvent.slots)
 
     // granular validation so the alert matches the actual issue
     if (!newEvent.title?.trim()) {
@@ -239,12 +241,7 @@ export default function EventsPage() {
             <h1 className="text-4xl font-bold">Event Schedule</h1>
             <button
               onClick={() => setShowAddEventForm(!showAddEventForm)}
-              className="flex items-center gap-2 px-6 py-3 rounded-md text-white font-medium transition-colors"
-              style={{
-                backgroundColor: "#5a7d5d",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+              className="flex items-center gap-2 px-6 py-3 rounded-md text-white font-medium transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
             >
               {showAddEventForm ? (
                 <>
@@ -380,12 +377,7 @@ export default function EventsPage() {
                 </button>
                 <button
                   onClick={handleAddEvent}
-                  className="px-6 py-2 rounded-md text-white font-medium transition-colors"
-                  style={{
-                    backgroundColor: "#5a7d5d",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                  className="px-6 py-2 rounded-md text-white font-medium transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
                 >
                   Create Event
                 </button>
@@ -540,12 +532,7 @@ export default function EventsPage() {
                     <button
                       onClick={() => handleRegister(event)}
                       disabled={event.slots <= 0}
-                      className="px-6 py-2 rounded-md text-white font-medium transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{
-                        backgroundColor: "#5a7d5d",
-                      }}
-                      onMouseEnter={(e) => event.slots > 0 && (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                      onMouseLeave={(e) => event.slots > 0 && (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                      className="px-6 py-2 rounded-md text-white font-medium transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed bg-[#5a7d5d] hover:bg-[#4a6d4d]"
                     >
                       {event.slots <= 0 ? "Full" : "Register"}
                     </button>

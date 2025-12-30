@@ -73,10 +73,9 @@ export default function PrivateLessonsPage() {
                   )
                 }
                 disabled={!lisaLesson}
-                className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: lisaLesson ? "#5a7d5d" : "#ccc" }}
-                onMouseEnter={(e) => lisaLesson && (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                onMouseLeave={(e) => lisaLesson && (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                className={`w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:cursor-not-allowed ${
+                  lisaLesson ? "bg-[#5a7d5d] hover:bg-[#4a6d4d]" : "bg-gray-400"
+                }`}
               >
                 Register
               </button>
@@ -119,10 +118,9 @@ export default function PrivateLessonsPage() {
                   )
                 }
                 disabled={!josieLesson}
-                className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: josieLesson ? "#5a7d5d" : "#ccc" }}
-                onMouseEnter={(e) => josieLesson && (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                onMouseLeave={(e) => josieLesson && (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                className={`w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:cursor-not-allowed ${
+                  josieLesson ? "bg-[#5a7d5d] hover:bg-[#4a6d4d]" : "bg-gray-400"
+                }`}
               >
                 Register
               </button>
@@ -151,10 +149,9 @@ export default function PrivateLessonsPage() {
               <button
                 onClick={() => handleRegister("Danika", "Private Diving Lesson", 35)}
                 disabled={!danikaLesson}
-                className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: danikaLesson ? "#5a7d5d" : "#ccc" }}
-                onMouseEnter={(e) => danikaLesson && (e.currentTarget.style.backgroundColor = "#4a6d4d")}
-                onMouseLeave={(e) => danikaLesson && (e.currentTarget.style.backgroundColor = "#5a7d5d")}
+                className={`w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:cursor-not-allowed ${
+                  danikaLesson ? "bg-[#5a7d5d] hover:bg-[#4a6d4d]" : "bg-gray-400"
+                }`}
               >
                 Register
               </button>

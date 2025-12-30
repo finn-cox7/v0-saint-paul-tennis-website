@@ -33,7 +33,7 @@ interface WeeklyEventTemplate {
   id: string
   label: string
   laneIds: LaneId[] | "all"
-  weekday: number // 0 = Sun ... 6 = Sat
+  weekday: number | "weekdays" | "weekends" // 0 = Sun ... 6 = Sat, or special values
   startSlot: number // slot index
   durationSlots: number // in 30-min slots
 }
@@ -345,7 +345,7 @@ export default function LapLaneBookingPage() {
         const val = e.target.value
         setNewWeekly((x) => ({
           ...x,
-          weekday: val === "weekdays" ? "weekdays" : Number(val),
+          weekday: val === "weekdays" || val === "weekends" ? val : Number(val),
         }))
       }}
       className="border rounded px-2 py-1"
@@ -485,7 +485,11 @@ export default function LapLaneBookingPage() {
       <li key={tpl.id} className="py-2 flex items-center justify-between">
         <div className="flex flex-col">
           <span className="font-medium">
-            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][tpl.weekday]} • {tpl.label}
+            {typeof tpl.weekday === "number"
+              ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][tpl.weekday]
+              : tpl.weekday === "weekdays"
+                ? "Weekdays"
+                : "Weekends"} • {tpl.label}
           </span>
           <span className="text-muted-foreground">
             Slots {tpl.startSlot}-{tpl.startSlot + tpl.durationSlots} •{" "}
