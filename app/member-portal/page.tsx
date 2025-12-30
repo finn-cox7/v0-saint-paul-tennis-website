@@ -51,7 +51,7 @@ export default function MemberPortalPage() {
       <Header />
       <main className="flex-1">
         {/* Welcome Banner */}
-        <div className="bg-[#5a7d5d] text-white py-8">
+        <div className="bg-primary text-white py-8">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
@@ -92,8 +92,8 @@ export default function MemberPortalPage() {
               <div className="bg-white border rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-semibold text-foreground">Upcoming</h2>
-                  <Link href="/member-portal/reservations" className="text-sm text-[#5a7d5d] hover:underline">
-                    View all
+                  <Link href="/member-portal/reservations" className="text-sm text-primary hover:underline">
+                    View all<span className="sr-only"> reservations and events</span>
                   </Link>
                 </div>
                 {mockUpcoming.length > 0 ? (
@@ -136,7 +136,7 @@ export default function MemberPortalPage() {
                   </div>
                   <Link
                     href="/member-portal/account"
-                    className="block w-full text-center py-2 border border-[#5a7d5d] text-[#5a7d5d] rounded-md hover:bg-[#5a7d5d] hover:text-white transition-colors"
+                    className="block w-full text-center py-2 border border-primary text-primary rounded-md hover:bg-primary hover:text-white transition-colors"
                   >
                     View Account Details
                   </Link>
@@ -149,7 +149,7 @@ export default function MemberPortalPage() {
                 <p className="text-sm text-muted-foreground mb-4">4 members</p>
                 <Link
                   href="/member-portal/household"
-                  className="text-sm text-[#5a7d5d] hover:underline flex items-center gap-1"
+                  className="text-sm text-primary hover:underline flex items-center gap-1"
                 >
                   Manage household <ChevronRight className="h-4 w-4" />
                 </Link>
@@ -167,7 +167,7 @@ export default function MemberPortalPage() {
                     <Clock className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">My Reservations</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">My Reservations</h3>
                     <p className="text-sm text-muted-foreground">View and manage your court and lane reservations</p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function MemberPortalPage() {
                     <Calendar className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">Events</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">Events</h3>
                     <p className="text-sm text-muted-foreground">Browse and register for club events</p>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export default function MemberPortalPage() {
                     <Users className="h-6 w-6 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">Household</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">Household</h3>
                     <p className="text-sm text-muted-foreground">Manage family members and contacts</p>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function MemberPortalPage() {
                     <CreditCard className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">Account & Billing</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">Account & Billing</h3>
                     <p className="text-sm text-muted-foreground">View balance, purchases, and guest passes</p>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function MemberPortalPage() {
                     <PartyPopper className="h-6 w-6 text-pink-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">Party Booking</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">Party Booking</h3>
                     <p className="text-sm text-muted-foreground">Book the club for private events</p>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function MemberPortalPage() {
                     <BookOpen className="h-6 w-6 text-teal-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-[#5a7d5d]">Member Directory</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary">Member Directory</h3>
                     <p className="text-sm text-muted-foreground">Find and connect with other members</p>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function MemberPortalPage() {
                   Tennis: 7:30 AM – Dusk (Late April – Mid-October)
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Club Phone: <a href="tel:651-224-3742" className="text-[#5a7d5d] hover:underline">651-224-3742</a> (in season)
+                  Club Phone: <a href="tel:651-224-3742" className="text-primary hover:underline">651-224-3742</a> (in season)
                 </p>
               </div>
             </div>
