@@ -22,7 +22,7 @@ export default function HoursRulesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-2">The Saint Paul Tennis Club Pool's Season:</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-2">The Saint Paul Tennis Club Pool&apos;s Season:</h2>
               <h3 className="text-lg text-foreground mb-6">Memorial Day Weekend through Labor Day Monday</h3>
               <h2 className="text-xl font-semibold text-foreground mb-2">Pool Hours:</h2>
               <h3 className="text-lg text-foreground mb-12">

@@ -53,7 +53,7 @@ export default function InstructionPage() {
             </ul>
           </ul>
           <h2 className="text-xl font-bold mb-2">
-            {"Beginner (11:40-12:15)/Intermediate Classes: (11:40-12:20) (M-Th)/ 9&9:30 (Sat & Sun)."}
+            Beginner (11:40-12:15)/Intermediate Classes: (11:40-12:20) (M-Th)/ 9&amp;9:30 (Sat &amp; Sun).
           </h2>
           <p className="text-lg font-normal pl-4 mb-2">
             {" "}
@@ -125,7 +125,7 @@ export default function InstructionPage() {
           <ul className="list-disc pl-8 space-y-2 mb-4">
             <li>
               {" "}
-              Added "Bonus": Members moving from this group up to the swim team have the Swim Team Fee discounted.{" "}
+              Added &quot;Bonus&quot;: Members moving from this group up to the swim team have the Swim Team Fee discounted.{" "}
             </li>
             <ul className="list-disc pl-12 space-y-2 mb-4">
               <li>

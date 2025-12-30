@@ -126,7 +126,7 @@ export default function LapLaneBookingPage() {
         })),
       ),
     )
-  }, [selectedHour, bookings, date, blocksByDate, weeklyTemplates])
+  }, [selectedHour])
 
   // ---- Helpers: booking & conflicts ----
   function key(lane: LaneId, slotIndex: number, subslot: Subslot): BookingKey {

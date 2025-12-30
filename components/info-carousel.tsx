@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const slides = [
   {
@@ -11,15 +12,15 @@ const slides = [
     content: (
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          We've been part of the Summit Hill neighborhood since 1912. The Saint Paul Tennis Club is a small, friendly
-          place where families come to play tennis, swim, and enjoy summer together. We're open Memorial Day through
+          We&apos;ve been part of the Summit Hill neighborhood since 1912. The Saint Paul Tennis Club is a small, friendly
+          place where families come to play tennis, swim, and enjoy summer together. We&apos;re open Memorial Day through
           Labor Day with programs for kids and adults.
         </p>
         <p>
           Our historic clubhouse and courts have that old-school charm, but we keep things relaxed and fun. Whether
-          you're here for a serious match or just want to cool off in the pool, everyone's welcome.
+          you&apos;re here for a serious match or just want to cool off in the pool, everyone&apos;s welcome.
         </p>
-        <p>Stop by and see what makes our little club special. We'd love to have you join our tennis family.</p>
+        <p>Stop by and see what makes our little club special. We&apos;d love to have you join our tennis family.</p>
       </div>
     ),
     image: "/sptc_south.jpg",
@@ -31,15 +32,15 @@ const slides = [
     content: (
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          We have six well-maintained courts ready for play all season long. Whether you're a beginner or a seasoned
-          player, you'll find your place here.
+          We have six well-maintained courts ready for play all season long. Whether you&apos;re a beginner or a seasoned
+          player, you&apos;ll find your place here.
         </p>
         <p>
           Our tennis programs include group lessons for kids, adult clinics, and league play. We also host friendly
           tournaments throughout the summer. Court reservations are easy through our member portal.
         </p>
         <p>
-          Drop-in play is always welcome, and you'll usually find someone around for a quick match. It's a great way to
+          Drop-in play is always welcome, and you&apos;ll usually find someone around for a quick match. It&apos;s a great way to
           meet your neighbors and get some exercise.
         </p>
       </div>
@@ -53,7 +54,7 @@ const slides = [
     content: (
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          Our pool is the heart of the club during those hot summer days. It's a great size for lap swimming in the
+          Our pool is the heart of the club during those hot summer days. It&apos;s a great size for lap swimming in the
           morning and family fun in the afternoon.
         </p>
         <p>
@@ -61,7 +62,7 @@ const slides = [
           everyone from first-timers to competitive swimmers improve their skills.
         </p>
         <p>
-          The pool area has plenty of space to relax, read a book, or catch up with friends. It's the perfect spot for
+          The pool area has plenty of space to relax, read a book, or catch up with friends. It&apos;s the perfect spot for
           families to spend a summer day together.
         </p>
       </div>
@@ -75,14 +76,14 @@ const slides = [
     content: (
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          We're always looking for friendly, responsible people to join our summer staff.
+          We&apos;re always looking for friendly, responsible people to join our summer staff.
         </p>
         <p>
-          Working at the club is a great summer job. You'll be part of a close-knit team, work outdoors, and help create
+          Working at the club is a great summer job. You&apos;ll be part of a close-knit team, work outdoors, and help create
           a fun atmosphere for our members. Many of our staff members return year after year.
         </p>
         <p>
-          If you're interested in joining our team, send your resume and a brief note about yourself to{" "}
+          If you&apos;re interested in joining our team, send your resume and a brief note about yourself to{" "}
           <a href="mailto:jobs@saintpaultennisclub.com" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded-sm">
             jobs@saintpaultennisclub.com
           </a>
@@ -221,11 +222,12 @@ export default function InfoCarousel() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
-                <img
+              <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden relative">
+                <Image
                   src={slides[currentSlide].image || "/placeholder.svg"}
                   alt={slides[currentSlide].imageAlt}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>

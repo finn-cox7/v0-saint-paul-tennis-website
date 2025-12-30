@@ -34,7 +34,7 @@ export default function ClubOverviewPage() {
             <p className="text-lg text-muted-foreground mb-6">
               In 2016, the Club undertook a major renovation, resulting in a new 25-yard, 6-lane swimming pool with a
               diving board and shallow well. A new bath house and office/club room was constructed. An underground
-              watering system was installed under the four "green clay" tennis courts. We now have a beautiful,
+              watering system was installed under the four &quot;green clay&quot; tennis courts. We now have a beautiful,
               up-to-date facility.
             </p>
             <p className="text-lg text-muted-foreground mb-6">

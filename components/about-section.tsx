@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function AboutSection() {
   return (
@@ -12,17 +13,17 @@ export default function AboutSection() {
 
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                We've been part of the Summit Hill neighborhood since 1912. The Saint Paul Tennis Club is a small,
-                friendly place where families come to play tennis, swim, and enjoy summer together. We're open Memorial
+                We&apos;ve been part of the Summit Hill neighborhood since 1912. The Saint Paul Tennis Club is a small,
+                friendly place where families come to play tennis, swim, and enjoy summer together. We&apos;re open Memorial
                 Day through Labor Day with programs for kids and adults.
               </p>
 
               <p>
                 Our historic clubhouse and courts have that old-school charm, but we keep things relaxed and fun.
-                Whether you're here for a serious match or just want to cool off in the pool, everyone's welcome.
+                Whether you&apos;re here for a serious match or just want to cool off in the pool, everyone&apos;s welcome.
               </p>
 
-              <p>Stop by and see what makes our little club special. We'd love to have you join our tennis family.</p>
+              <p>Stop by and see what makes our little club special. We&apos;d love to have you join our tennis family.</p>
             </div>
 
             <Button className="mt-8" size="lg">
@@ -32,10 +33,11 @@ export default function AboutSection() {
 
           <div className="relative">
             <div className="aspect-[4/5] bg-muted rounded-lg overflow-hidden">
-              <img
+              <Image
                 src="/historic-tennis-club-building.jpg"
                 alt="Historic Saint Paul Tennis Club building"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </div>

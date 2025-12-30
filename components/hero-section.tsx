@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/sptc_main.jpg"
           alt="Saint Paul Tennis Club facilities"
-          className="w-full h-full object-cover opacity-30"
+          fill
+          className="object-cover opacity-30"
+          priority
         />
       </div>
 

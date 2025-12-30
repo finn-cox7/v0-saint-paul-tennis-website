@@ -34,17 +34,17 @@ export default function ClubHistoryPage() {
               <h2 className="text-2xl font-bold mb-4">Promotion of the Game of Tennis</h2>
               <p className="mb-4 leading-relaxed">
                 The St. Paul Tennis Club was incorporated August 21, 1912. Its Articles of Incorporation, registered
-                with Minnesota Secretary of State Julius Schmall, state that the club was organized for "The promotion
+                with Minnesota Secretary of State Julius Schmall, state that the club was organized for &quot;The promotion
                 of the game of tennis, and the affording of facilities to members of the club for the playing of said
                 game, including the requisition by lease, purchase, gift, or devise of any and all property, real or
-                personal therefore." The names of the incorporates were: John Hersey Wheeler; John S. Dodson; Aldred G.
+                personal therefore.&quot; The names of the incorporates were: John Hersey Wheeler; John S. Dodson; Aldred G.
                 Norris; Donald P. Haynie; Martin P. Coonan; Howard W. Kingston; and Joseph Thomson.
               </p>
               <p className="leading-relaxed">
                 The incorporation document was among the possessions of Myra McGee, whose late husband, John McGee, was
                 one of the tennis enthusiasts who helped build the club. The land on which the four tennis courts and
                 the original clubhouse were built belonged to a man named Walter Coller. Tradition has it that he
-                donated the land to the club. After the title to Coller's land was obtained, master clay-court builder
+                donated the land to the club. After the title to Coller&apos;s land was obtained, master clay-court builder
                 Arnt Grindheim created the courts. Upon completion, Arnt, who happened to live in the house directly
                 west of the club, became a vigilant caretaker. Every day, the courts were rolled with a hand-roller,
                 dragged and relined. No one stepped a foot on the courts until Arnt gave the go-ahead.
@@ -77,7 +77,7 @@ export default function ClubHistoryPage() {
                 The big event of each summer was the State Tournament, during which the club fences were covered with
                 canvas and admission was charged for spectators. A small grandstand was erected along Court 1 for the
                 finals. The most colorful player to enter the tournaments was John Hennessey, who seemed to win every
-                time he played. Hennessey's credentials included competing on the Davis Cup team with George Lott, and a
+                time he played. Hennessey&apos;s credentials included competing on the Davis Cup team with George Lott, and a
                 legendary victory over Bill Tilden, who was ranked No. 1 in the world for seven years during the 1920s.
                 Hennessey would show up for the State Tournament finals wearing several sweaters that he shed, one at a
                 time, as his matches wore on. He used a large, wooden racquet that looked like an antique—even in the
@@ -91,10 +91,10 @@ export default function ClubHistoryPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">Days of Davis & Kesting</h2>
               <p className="mb-4 leading-relaxed">
-                Not many women played tennis competitively in the club's early days. This made Marguerite Davis even
-                more spectacular to behold. She first won the women's singles division of the State Tournament in 1911,
+                Not many women played tennis competitively in the club&apos;s early days. This made Marguerite Davis even
+                more spectacular to behold. She first won the women&apos;s singles division of the State Tournament in 1911,
                 at the age of 21. And she won every consecutive year until 1933, when she lost to Elizabeth Kesting,
-                also a member of the club. Davis' nephew, John Harrison, said his aunt was once ranked No. 12 in the
+                also a member of the club. Davis&apos; nephew, John Harrison, said his aunt was once ranked No. 12 in the
                 United States, and she played against the legendary Helen Moody in 1921. Davis and Kesting were both
                 later inducted into the Minnesota Tennis Hall of Fame, now called the USTA Northern Hall of Fame. (Davis
                 in 1987 and Kesting-Harris in 2002.)
@@ -104,16 +104,16 @@ export default function ClubHistoryPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">More on Marguerite Davis</h2>
               <p className="leading-relaxed">
-                Fondly known as "Mugs" or "Mugsy," Marguerite Davis was born in 1890. She was a student at Mrs. Backus'
-                School for Girls, at 586 Holly Ave., where she met her friend Alice O'Brien. Their wartime adventures as
-                American Red Cross volunteers in Europe are captured in the 2017 book, "Alice in France: The World War I
-                Letters of Alice M. O'Brien," edited by Alice's grandniece and club member Nancy O'Brien Wagner. Mugsy
+                Fondly known as &quot;Mugs&quot; or &quot;Mugsy,&quot; Marguerite Davis was born in 1890. She was a student at Mrs. Backus&apos;
+                School for Girls, at 586 Holly Ave., where she met her friend Alice O&apos;Brien. Their wartime adventures as
+                American Red Cross volunteers in Europe are captured in the 2017 book, &quot;Alice in France: The World War I
+                Letters of Alice M. O&apos;Brien,&quot; edited by Alice&apos;s grandniece and club member Nancy O&apos;Brien Wagner. Mugsy
                 was a generous supporter of the club, and also of 1959 Wimbledon doubles champion Jeanne Arth, whose
                 family, like most, was not in a financial position to manage the expenses of national and international
                 competition. Mugsy, who never married and ran a travel agency in downtown St. Paul, continued to play on
                 the clay, often on Sunday afternoons, well into her later years. After her death on March 16, 1963,
-                Mugsy's family donated to the Minnesota History Center a sterling trophy from the 1907 Minnesota State
-                Lawn Tennis Championship for women's doubles and a woven cloth trophy from the 1919 Northwest Lawn
+                Mugsy&apos;s family donated to the Minnesota History Center a sterling trophy from the 1907 Minnesota State
+                Lawn Tennis Championship for women&apos;s doubles and a woven cloth trophy from the 1919 Northwest Lawn
                 Tennis Championship.
               </p>
             </section>
@@ -124,9 +124,9 @@ export default function ClubHistoryPage() {
                 In 1918, Mugsy and Alice were among a group of school friends who traveled to France to serve as
                 mechanics and hospital and canteen workers during World War I. Mugsy returned home to St. Paul in
                 January 1919, after the surrender of Germany on Nov. 11, 1918, to find Minnesota being ravaged by the
-                mis-named "Spanish Flu." Between September 1918 and January 1919, more than 10,000 Minnesotans died of
-                influenza—1,180 of them St. Paul residents. In the 2018 book titled, "Minnesota 1918: When Flu, Fire,
-                and War Ravaged the State," Curt Brown, a longtime Osceola Avenue resident, wrote that St. Paul was more
+                mis-named &quot;Spanish Flu.&quot; Between September 1918 and January 1919, more than 10,000 Minnesotans died of
+                influenza—1,180 of them St. Paul residents. In the 2018 book titled, &quot;Minnesota 1918: When Flu, Fire,
+                and War Ravaged the State,&quot; Curt Brown, a longtime Osceola Avenue resident, wrote that St. Paul was more
                 resistant to imposing public-health restrictions than Minneapolis. But a citywide order on Nov. 6, 1918,
                 closed schools, churches, bars and many businesses. Public gatherings were banned, except for work
                 related to the war effort. The outbreak tapered off in early 1919, and by the time the club opened for
@@ -138,7 +138,7 @@ export default function ClubHistoryPage() {
                 manager Gary Grey and the SPTC board of directors implemented social-distancing, mask-wearing, cleaning
                 and programming protocols. With reduced capacity in the pool and on the courts to minimize virus spread,
                 it was a summer where flexibility and patience came into play. The typical season staff includes about
-                20 college and high school students, but in 2020 a "Gang of Four" (Tor Cox, Emily Hite, Rory King and
+                20 college and high school students, but in 2020 a &quot;Gang of Four&quot; (Tor Cox, Emily Hite, Rory King and
                 Gracie Munson-Regala) kept the club running in alignment with pandemic rules, as directed by Gary. This
                 small team, all SPTC members since they were young kids, was central to reducing virus spread by keeping
                 staff numbers low. When state health guidelines permitted opening of the pool in late June, a few more
@@ -151,28 +151,28 @@ export default function ClubHistoryPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">The Olympic Skating Rink</h2>
               <p className="mb-4 leading-relaxed">
-                In the 1940s and 1950s, the club's tennis courts were flooded-and-frozen in winter, transforming the red
-                clay into "The Olympic Skating Rink." Members and friends remember ice skating out under the stars to
-                songs like "Mr. Sandman," by the Chordettes, and other favorites, played over a loudspeaker rigged to
+                In the 1940s and 1950s, the club&apos;s tennis courts were flooded-and-frozen in winter, transforming the red
+                clay into &quot;The Olympic Skating Rink.&quot; Members and friends remember ice skating out under the stars to
+                songs like &quot;Mr. Sandman,&quot; by the Chordettes, and other favorites, played over a loudspeaker rigged to
                 the clubhouse. Michael E. Murphy, who lived at 1069 Fairmount Ave. from 1941 to 1976, re-creates this
-                magical time in his 2106 collection of poems, "Songs of Crocus Hill." In "Winter Dreams at the Club," a
-                copy of which is on display in the clubhouse, Mike writes of club manager Ted Dwyer, "taking our
-                quarters for the skating, our dimes for the pop and candy, his half-smile a reminder he'll throw us out
-                into the black night for fighting or cussing."
+                magical time in his 2106 collection of poems, &quot;Songs of Crocus Hill.&quot; In &quot;Winter Dreams at the Club,&quot; a
+                copy of which is on display in the clubhouse, Mike writes of club manager Ted Dwyer, &quot;taking our
+                quarters for the skating, our dimes for the pop and candy, his half-smile a reminder he&apos;ll throw us out
+                into the black night for fighting or cussing.&quot;
               </p>
               <p className="leading-relaxed">
-                Another poem in the collection, titled, "Mr. Grindheim" is a tribute to the man who built and cared for
-                the clay courts for decades. Mike also has fond memories of Radisky's Linwood Sweetshop—now a duplex
-                adjacent to Court 4—and in "Yo-Yo Wayne" memorializes a yo-yo salesman doing tricks with a Duncan on the
-                wide stoop in front of the shop. For many years, members from this era enjoyed an annual "Old Clubbers"
+                Another poem in the collection, titled, &quot;Mr. Grindheim&quot; is a tribute to the man who built and cared for
+                the clay courts for decades. Mike also has fond memories of Radisky&apos;s Linwood Sweetshop—now a duplex
+                adjacent to Court 4—and in &quot;Yo-Yo Wayne&quot; memorializes a yo-yo salesman doing tricks with a Duncan on the
+                wide stoop in front of the shop. For many years, members from this era enjoyed an annual &quot;Old Clubbers&quot;
                 luncheon at The Lex. Attendees almost always included: Mike, the Arth siblings (Tom and Jeanne), Bob
                 Haugh, Hezzy Burke, Gus Metzger and Danny Dwyer, son of the legendary club manager. Beautiful images of
-                The Olympic are also captured in Patricia Hampl's 2018 memoir, "The Art of the Wasted Day." An
+                The Olympic are also captured in Patricia Hampl&apos;s 2018 memoir, &quot;The Art of the Wasted Day.&quot; An
                 internationally acclaimed writer, educator and MacArthur and Googenheim fellow, Trish grew up across the
-                street from the club. In one lovely passage, she writes, "We're skating separately, boys zig-zagging on
+                street from the club. In one lovely passage, she writes, &quot;We&apos;re skating separately, boys zig-zagging on
                 their blunt hockey skates, practicing slap shots with their sticks, girls treading along in white boots
                 whose slim blades have toe picks that look as if the metal were cut with pinking shears. We skate, five
-                girls in a row, holding hands."
+                girls in a row, holding hands.&quot;
               </p>
             </section>
 
@@ -181,7 +181,7 @@ export default function ClubHistoryPage() {
               <p className="mb-4 leading-relaxed">
                 A decline in club membership began in the mid-1940s, likely associated with the World War II climate.
                 Although membership continued to dwindle in the 1950s, it was nevertheless a hugely proud decade for the
-                club because of the incredible talent of Jeanne Arth. Celebrated as one of Sports Illustrated's 50
+                club because of the incredible talent of Jeanne Arth. Celebrated as one of Sports Illustrated&apos;s 50
                 Greatest Minnesota Sports Figures of the 20th Century, Jeanne grew up at 1083 Osceola Ave., just west of
                 the club. She and her sister, Shirley, learned to play tennis under the watchful eye of club caretaker
                 and instructor Louie Soukup, and were supported and cheered on by many members of the club through the
@@ -189,8 +189,8 @@ export default function ClubHistoryPage() {
               </p>
               <p className="leading-relaxed">
                 Court 1 was dedicated to Jeanne in 2010, with a plaque on permanent display featuring a picture of her
-                in pigtails and holding a racquet nearly as big as she was. Jeanne's most recent visits to the club were
-                in July 2018, to share stories at a "Wimbledon Breakfast," and in August 2020, for filming of a
+                in pigtails and holding a racquet nearly as big as she was. Jeanne&apos;s most recent visits to the club were
+                in July 2018, to share stories at a &quot;Wimbledon Breakfast,&quot; and in August 2020, for filming of a
                 documentary on her career by club member Bobak Razavi, a teacher and tennis coach at St. Paul Academy,
                 and his students. The event was coordinated by tennis director Greg Hiers, who remembers meeting Jeanne
                 soon after he came to the club in 1997. She had given up tennis for golf by then, but Greg remembers
@@ -217,12 +217,12 @@ export default function ClubHistoryPage() {
                 into delicate negotiations to purchase the lot directly west of the club, on which the Grindheim home
                 was built. The plan included relocating the Grindheim home from Osceola Avenue to the north side of
                 Fairmount Avenue, between Victoria and Avon Streets, where it still stands. The spectacle of moving an
-                entire house was imagined, with a few artistic liberties, in a Michael E. Murphy poem titled, "A Second
-                Crossing," that is included in "Songs of Crocus Hill."
+                entire house was imagined, with a few artistic liberties, in a Michael E. Murphy poem titled, &quot;A Second
+                Crossing,&quot; that is included in &quot;Songs of Crocus Hill.&quot;
               </p>
               <p className="leading-relaxed">
-                In the fall of 1961, members hosted a "farewell party" for the old clubhouse. Some in attendance
-                described the event as "joyous, raucous or even out of control, but no arrests were made."
+                In the fall of 1961, members hosted a &quot;farewell party&quot; for the old clubhouse. Some in attendance
+                described the event as &quot;joyous, raucous or even out of control, but no arrests were made.&quot;
               </p>
             </section>
 
@@ -235,20 +235,20 @@ export default function ClubHistoryPage() {
                 increased, in volume and quantity of play. Club news was regularly covered in the sports and society
                 sections of the St. Paul Pioneer Press and St. Paul Dispatch. Photographs from the 1960s feature members
                 in tennis whites, sitting in canvas chairs, casually enjoying cigarettes. Popular names from the 1960s
-                include the Corrigans, Greenmans, Gehans, McCartneys, McGees, O'Briens, Plunketts and Suttons.
+                include the Corrigans, Greenmans, Gehans, McCartneys, McGees, O&apos;Briens, Plunketts and Suttons.
               </p>
               <p className="mb-4 leading-relaxed">
-                One fun photo published in the Dispatch on July 15, 1968, captures the "Second Annual Lawn Social"
+                One fun photo published in the Dispatch on July 15, 1968, captures the &quot;Second Annual Lawn Social&quot;
                 hosted by Karl V. Klein, who lived at 1056 Fairmount Ave., across the alley from the clay courts. Karl
                 dressed in coat-and-tails and top hat to entertain his guests, a group of women who were regular players
-                at the club. The photo caption reads, "The luncheon was given with the blessings of Mrs. Klein, and both
-                guests and hosts agreed it would be an annual event."
+                at the club. The photo caption reads, &quot;The luncheon was given with the blessings of Mrs. Klein, and both
+                guests and hosts agreed it would be an annual event.&quot;
               </p>
               <p className="leading-relaxed">
                 In the 1960s, witty club members also produced a hilarious newsletter titled The Racqueteer. Snippets
-                from the May 1963 edition include recipes for cocktails named, "The Half Volley" and "Half-Gainer," and
-                an "Ask Sadie" advice column, seemingly for the lovelorn. An annual awards list included: Crabbiest at
-                the Pool: Joe Goswitz; Most Effective Serve: Pat Corrigan; Most Happy-Go-Lucky Irishman: Mike O'Brien;
+                from the May 1963 edition include recipes for cocktails named, &quot;The Half Volley&quot; and &quot;Half-Gainer,&quot; and
+                an &quot;Ask Sadie&quot; advice column, seemingly for the lovelorn. An annual awards list included: Crabbiest at
+                the Pool: Joe Goswitz; Most Effective Serve: Pat Corrigan; Most Happy-Go-Lucky Irishman: Mike O&apos;Brien;
                 Least Distracting Serve: Jean Baker.
               </p>
             </section>
@@ -256,24 +256,24 @@ export default function ClubHistoryPage() {
             <section>
               <h2 className="text-2xl font-bold mb-4">Olson & King</h2>
               <p className="mb-4 leading-relaxed">
-                Leonard "Bucky" Olson was lured from the plush surroundings of Town & Country Club to the friendly
-                confines of Osceola Avenue in the 1960s, and is remembered as one of the club's favorite tennis pros.
-                Bucky's widow, Shirley Olson Graham, who died at age 95 in December 2020, said many of her family's
+                Leonard &quot;Bucky&quot; Olson was lured from the plush surroundings of Town & Country Club to the friendly
+                confines of Osceola Avenue in the 1960s, and is remembered as one of the club&apos;s favorite tennis pros.
+                Bucky&apos;s widow, Shirley Olson Graham, who died at age 95 in December 2020, said many of her family&apos;s
                 happiest memories were from the club days. Bucky loved tennis, Shirley said, but he loved the friendship
                 and fun of the club just as much. Shirley kept a cartoon from a 1970s edition of one of the St. Paul
                 newspapers, showing a player with a panicky expression on his face being carried off the court. The
-                caption reads, "He's been stiff like this since he learned he's gotta play Bucky Olson in the first
-                round."
+                caption reads, &quot;He&apos;s been stiff like this since he learned he&apos;s gotta play Bucky Olson in the first
+                round.&quot;
               </p>
               <p className="mb-4 leading-relaxed">
-                When Bucky died unexpectedly, St. Paul Pioneer Press sports columnist Don Riley wrote, "The world lost a
-                friend in tennis pro Bucky Olson. He had a sensitivity to peoples' needs that far exceeded the domain of
-                his courts and schoolrooms." Bucky's legacy lives on, though, with his son, David, working as a tennis
+                When Bucky died unexpectedly, St. Paul Pioneer Press sports columnist Don Riley wrote, &quot;The world lost a
+                friend in tennis pro Bucky Olson. He had a sensitivity to peoples&apos; needs that far exceeded the domain of
+                his courts and schoolrooms.&quot; Bucky&apos;s legacy lives on, though, with his son, David, working as a tennis
                 instructor. In fact, David was featured in the Highland Villager newspaper in July 2011 while coaching a
                 program on the Bucky Olson Tennis Courts at Central High school.
               </p>
               <p className="leading-relaxed">
-                John King, a contemporary of Bucky's, is another proud credit to the club's history. John was a teaching
+                John King, a contemporary of Bucky&apos;s, is another proud credit to the club&apos;s history. John was a teaching
                 pro at the club, but is perhaps more well known for developing urban youth tennis programs in the Twin
                 Cities. In 1970, he teamed with Jack Thommen and Bob Speed to launch the Minneapolis Urban Tennis
                 Program, and in 1989 started the St. Paul Urban Tennis Program.
@@ -284,7 +284,7 @@ export default function ClubHistoryPage() {
               <h2 className="text-2xl font-bold mb-4">Gary Grey: Club Manager, Hawkeyes Fan</h2>
               <p className="leading-relaxed">
                 When Eisenhower (Hopkins) High School teacher and swim coach Gary Grey responded to an ad in the Sunday
-                newspaper in 1984 for a "club manager and swimming coach," he thought it might be an interesting summer
+                newspaper in 1984 for a &quot;club manager and swimming coach,&quot; he thought it might be an interesting summer
                 position. He and Pat Brynteson, club president at the time, agreed that Gary would accept the job in the
                 short-term, and see how things worked out. Fast-forward millions of laps and hundreds of swim meets over
                 what turned out to be a remarkable 38-year tenure. When Gary retired from the club at the end of the

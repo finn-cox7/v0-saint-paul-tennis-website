@@ -250,12 +250,12 @@ export default function SwimTeamInfoPage() {
                 <p>
                   We compete in the Inter-Club Conference. Teams we compete with include: The University Club, Town and
                   Country Club, Dellwood Hills Golf Club, White Bear Yacht Club, The St. Paul Jewish Community Center,
-                  The Pool and Yacht Club, and Brackett's Crossing Country Club.
+                  The Pool and Yacht Club, and Brackett&apos;s Crossing Country Club.
                 </p>
                 <p>
                   The goal of the Inter-Club swimming program is to provide a strong, competitive swimming experience
                   with an emphasis on skill development. The program also strives to provide an experience that develops
-                  sportsmanship and encourages the "fun" aspect of this activity.
+                  sportsmanship and encourages the &quot;fun&quot; aspect of this activity.
                 </p>
                 <p>
                   <span className="font-semibold">Age Groups:</span> The four age-groups for competition in both
@@ -316,7 +316,7 @@ export default function SwimTeamInfoPage() {
                   <span className="font-semibold">Assistant Swim Coaches and Swimming Instructors:</span> SPTC Staff
                 </p>
                 <p>
-                  <span className="font-semibold">Diving Coaches:</span> Lauren O'Donnell & Danika Rubbelke
+                  <span className="font-semibold">Diving Coaches:</span> Lauren O&apos;Donnell & Danika Rubbelke
                 </p>
               </div>
             </div>
