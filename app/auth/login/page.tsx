@@ -64,7 +64,11 @@ export default function LoginPage() {
             </p>
 
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+              <div
+                role="alert"
+                aria-live="assertive"
+                className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4"
+              >
                 {error}
               </div>
             )}
@@ -80,9 +84,10 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="your@email.com"
                   disabled={loading}
+                  aria-describedby={error ? "login-error" : undefined}
                 />
               </div>
 
@@ -96,7 +101,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Enter your password"
                   disabled={loading}
                 />
@@ -105,17 +110,23 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:opacity-50"
-                style={{ backgroundColor: "#5a7d5d" }}
+                className="w-full px-6 py-3 min-h-11 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
-                {loading ? "Signing in..." : "Sign In"}
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" aria-hidden="true" />
+                    Signing in...
+                  </span>
+                ) : (
+                  "Sign In"
+                )}
               </button>
             </form>
 
             <div className="mt-6 text-center text-sm">
               <Link
                 href="/auth/forgot-password"
-                className="text-[#5a7d5d] hover:underline"
+                className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
               >
                 Forgot your password?
               </Link>
@@ -125,7 +136,7 @@ export default function LoginPage() {
               Not a member yet?{" "}
               <Link
                 href="/auth/register"
-                className="text-[#5a7d5d] hover:underline font-medium"
+                className="text-primary hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
               >
                 Create an account
               </Link>
@@ -134,7 +145,7 @@ export default function LoginPage() {
             <div className="mt-6 pt-6 border-t text-center text-sm text-muted-foreground">
               <p>
                 Need help?{" "}
-                <Link href="/contact/contact-us" className="text-[#5a7d5d] hover:underline">
+                <Link href="/contact/contact-us" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm">
                   Contact us
                 </Link>
               </p>

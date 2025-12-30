@@ -62,7 +62,7 @@ export default function ForgotPasswordPage() {
               </p>
               <Link
                 href="/auth/login"
-                className="text-[#5a7d5d] hover:underline font-medium"
+                className="text-primary hover:underline font-medium"
               >
                 Return to login
               </Link>
@@ -77,7 +77,11 @@ export default function ForgotPasswordPage() {
               </p>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4"
+                >
                   {error}
                 </div>
               )}
@@ -102,8 +106,7 @@ export default function ForgotPasswordPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors disabled:opacity-50"
-                  style={{ backgroundColor: "#5a7d5d" }}
+                  className="w-full px-6 py-3 min-h-11 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   {loading ? "Sending..." : "Send Reset Link"}
                 </button>
@@ -112,7 +115,7 @@ export default function ForgotPasswordPage() {
               <div className="mt-6 text-center text-sm">
                 <Link
                   href="/auth/login"
-                  className="text-[#5a7d5d] hover:underline"
+                  className="text-primary hover:underline"
                 >
                   Back to login
                 </Link>
