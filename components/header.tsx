@@ -1,10 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { useDropdown } from "@/hooks/use-dropdown"
 
 interface NavItem {
   label: string
@@ -57,34 +56,54 @@ const navItems: NavItem[] = [
   },
 ]
 
-function DesktopDropdown({ item }: { item: NavItem }) {
-  const dropdown = useDropdown()
+interface DesktopDropdownProps {
+  item: NavItem
+  isOpen: boolean
+  onOpen: () => void
+  onClose: () => void
+}
+
+function DesktopDropdown({ item, isOpen, onOpen, onClose }: DesktopDropdownProps) {
+  const menuId = `menu-${item.label.toLowerCase().replace(/\s+/g, '-')}`
 
   if (!item.items) {
     return (
-      <Link href={item.href || "#"} className="text-foreground hover:text-primary transition-colors">
+      <Link href={item.href || "#"} className="text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm">
         {item.label}
       </Link>
     )
   }
 
   return (
-    <div ref={dropdown.ref} className="relative" {...dropdown.handlers}>
+    <div
+      className="relative"
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
+    >
       <button
-        onClick={dropdown.toggle}
-        className="text-foreground hover:text-primary transition-colors flex items-center gap-1"
+        onClick={() => isOpen ? onClose() : onOpen()}
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
+        aria-controls={menuId}
+        className="text-foreground hover:text-primary transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
       >
         {item.label}
-        <ChevronDown className={`h-4 w-4 transition-transform ${dropdown.isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
       </button>
-      {dropdown.isOpen && (
-        <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-border rounded-md shadow-lg py-2 z-50">
+      {isOpen && (
+        <div
+          id={menuId}
+          role="menu"
+          aria-orientation="vertical"
+          aria-label={`${item.label} submenu`}
+          className="absolute top-full left-0 mt-2 w-56 bg-white border border-border rounded-md shadow-lg py-2 z-50"
+        >
           {item.items.map((subItem) => (
             <Link
               key={subItem.href}
               href={subItem.href}
-              className="block px-4 py-2 text-foreground hover:bg-accent hover:text-primary transition-colors"
-              onClick={dropdown.close}
+              role="menuitem"
+              className="block px-4 py-2 text-foreground hover:bg-accent hover:text-primary transition-colors focus:bg-accent focus:text-primary focus:outline-none"
             >
               {subItem.label}
             </Link>
@@ -97,12 +116,13 @@ function DesktopDropdown({ item }: { item: NavItem }) {
 
 function MobileDropdown({ item, onLinkClick }: { item: NavItem; onLinkClick: () => void }) {
   const [isOpen, setIsOpen] = useState(false)
+  const menuId = `mobile-menu-${item.label.toLowerCase().replace(/\s+/g, '-')}`
 
   if (!item.items) {
     return (
       <Link
         href={item.href || "#"}
-        className="text-foreground hover:text-primary transition-colors"
+        className="text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
         onClick={onLinkClick}
       >
         {item.label}
@@ -114,18 +134,20 @@ function MobileDropdown({ item, onLinkClick }: { item: NavItem; onLinkClick: () 
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-foreground hover:text-primary transition-colors flex items-center gap-1 w-full"
+        aria-expanded={isOpen}
+        aria-controls={menuId}
+        className="text-foreground hover:text-primary transition-colors flex items-center gap-1 w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
       >
         {item.label}
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
       </button>
       {isOpen && (
-        <div className="pl-4 mt-2 space-y-2">
+        <div id={menuId} className="pl-4 mt-2 space-y-2">
           {item.items.map((subItem) => (
             <Link
               key={subItem.href}
               href={subItem.href}
-              className="block text-foreground hover:text-primary transition-colors"
+              className="block text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
               onClick={onLinkClick}
             >
               {subItem.label}
@@ -139,8 +161,68 @@ function MobileDropdown({ item, onLinkClick }: { item: NavItem; onLinkClick: () 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const mobileMenuRef = useRef<HTMLElement>(null)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null)
 
-  const closeMenu = () => setIsMenuOpen(false)
+  const closeMenu = useCallback(() => setIsMenuOpen(false), [])
+
+  const handleDropdownOpen = useCallback((label: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
+    setActiveDropdown(label)
+  }, [])
+
+  const handleDropdownClose = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setActiveDropdown(null)
+      closeTimerRef.current = null
+    }, 150)
+  }, [])
+
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const menuElement = mobileMenuRef.current
+    if (!menuElement) return
+
+    const focusableElements = menuElement.querySelectorAll<HTMLElement>(
+      'a, button, input, [tabindex]:not([tabindex="-1"])'
+    )
+    const firstElement = focusableElements[0]
+    const lastElement = focusableElements[focusableElements.length - 1]
+
+    // Focus first element when menu opens
+    firstElement?.focus()
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false)
+        menuButtonRef.current?.focus()
+        return
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault()
+          lastElement?.focus()
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault()
+          firstElement?.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
 
   return (
     <header className="bg-white border-b border-border sticky top-0 z-50">
@@ -148,11 +230,11 @@ export default function Header() {
         {/* Top bar with contact info */}
         <div className="hidden sm:flex justify-end py-2 text-sm text-muted-foreground border-b border-border gap-6">
           <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4" aria-hidden="true" />
             <span>651-224-3742</span>
           </div>
           <div className="flex items-center gap-2">
-            <Mail className="h-4 w-4" />
+            <Mail className="h-4 w-4" aria-hidden="true" />
             <span>info@saintpaultennisclub.com</span>
           </div>
         </div>
@@ -160,40 +242,58 @@ export default function Header() {
         {/* Main navigation */}
         <div className="flex items-center justify-between py-2">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm">
               <Image src="/saint-paul-logo.jpeg" alt="Saint Paul Tennis Club" width={200} height={64} priority />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
             {navItems.map((item) => (
-              <DesktopDropdown key={item.label} item={item} />
+              <DesktopDropdown
+                key={item.label}
+                item={item}
+                isOpen={activeDropdown === item.label}
+                onOpen={() => handleDropdownOpen(item.label)}
+                onClose={handleDropdownClose}
+              />
             ))}
             <Link
               href="/member-portal"
-              className="text-white px-6 py-2 rounded-md transition-colors font-medium bg-[#5a7d5d] hover:bg-[#4a6d4d]"
+              className="text-white px-6 py-2 rounded-md transition-colors font-medium bg-primary hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               Member Portal
             </Link>
           </nav>
 
           {/* Mobile menu button */}
-          <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button
+            ref={menuButtonRef}
+            className="lg:hidden p-2 min-h-11 min-w-11 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-border">
+          <nav
+            ref={mobileMenuRef}
+            id="mobile-navigation"
+            className="lg:hidden py-4 border-t border-border"
+            aria-label="Mobile navigation"
+          >
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <MobileDropdown key={item.label} item={item} onLinkClick={closeMenu} />
               ))}
               <Link
                 href="/member-portal"
-                className="text-white px-6 py-2 rounded-md transition-colors font-medium text-center bg-[#5a7d5d] hover:bg-[#4a6d4d]"
+                className="text-white px-6 py-2 rounded-md transition-colors font-medium text-center bg-primary hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 onClick={closeMenu}
               >
                 Member Portal
