@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -83,7 +83,7 @@ const slides = [
         </p>
         <p>
           If you're interested in joining our team, send your resume and a brief note about yourself to{" "}
-          <a href="mailto:jobs@saintpaultennisclub.com" className="text-primary hover:underline">
+          <a href="mailto:jobs@saintpaultennisclub.com" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary rounded-sm">
             jobs@saintpaultennisclub.com
           </a>
           . We typically start hiring in early spring.
@@ -130,33 +130,72 @@ const slides = [
 
 export default function InfoCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const containerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (isPaused) return
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 10000) // 10 seconds
 
     return () => clearInterval(timer)
+  }, [isPaused])
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
   }, [])
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
-
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+  }, [])
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index)
-  }
+  }, [])
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault()
+      prevSlide()
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault()
+      nextSlide()
+    }
+  }, [nextSlide, prevSlide])
+
+  const handleFocus = useCallback(() => {
+    setIsPaused(true)
+  }, [])
+
+  const handleBlur = useCallback((e: React.FocusEvent) => {
+    if (!containerRef.current?.contains(e.relatedTarget as Node)) {
+      setIsPaused(false)
+    }
+  }, [])
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section
+      ref={containerRef}
+      className="py-24 bg-muted/30"
+      aria-roledescription="carousel"
+      aria-label="Club information slideshow"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
+    >
       <div className="container mx-auto px-4">
         <div className="relative">
           {/* Carousel content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`Slide ${currentSlide + 1} of ${slides.length}: ${slides[currentSlide].title}`}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          >
             <div>
               <h2 className="font-serif text-4xl md:text-5xl font-light text-foreground mb-8 text-balance">
                 {slides[currentSlide].title}
@@ -165,15 +204,17 @@ export default function InfoCarousel() {
               {slides[currentSlide].content}
 
               {/* Navigation dots */}
-              <div className="flex items-center gap-2 mt-8">
+              <div className="flex items-center gap-2 mt-8" role="tablist" aria-label="Slide navigation">
                 {slides.map((slide, index) => (
                   <button
                     key={slide.id}
                     onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all ${
-                      index === currentSlide ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30"
+                    role="tab"
+                    aria-selected={index === currentSlide}
+                    aria-label={`Go to slide ${index + 1}: ${slide.title}`}
+                    className={`h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      index === currentSlide ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     }`}
-                    aria-label={`Go to ${slide.id} slide`}
                   />
                 ))}
               </div>
@@ -199,7 +240,7 @@ export default function InfoCarousel() {
               className="rounded-full bg-transparent"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             </Button>
             <Button
               variant="outline"
@@ -208,7 +249,7 @@ export default function InfoCarousel() {
               className="rounded-full bg-transparent"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </div>
