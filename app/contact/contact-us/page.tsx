@@ -14,10 +14,16 @@ export default function ContactUsPage() {
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+
     // TODO: Implement actual form submission via Supabase
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    setIsSubmitting(false)
     setSubmitted(true)
   }
 
@@ -54,7 +60,7 @@ export default function ContactUsPage() {
                   <h3 className="text-lg font-semibold text-foreground mb-3">Club Phone</h3>
                   <p className="text-foreground">
                     <span className="font-medium">In Season:</span>{" "}
-                    <a href="tel:651-224-3742" className="text-[#5a7d5d] hover:underline">
+                    <a href="tel:651-224-3742" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm">
                       651-224-3742
                     </a>
                   </p>
@@ -68,19 +74,19 @@ export default function ContactUsPage() {
                   <div className="space-y-2">
                     <div>
                       <p className="text-sm text-muted-foreground">Tennis Inquiries</p>
-                      <a href="mailto:tennis@saintpaultennisclub.com" className="text-[#5a7d5d] hover:underline">
+                      <a href="mailto:tennis@saintpaultennisclub.com" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm">
                         tennis@saintpaultennisclub.com
                       </a>
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Swimming Inquiries</p>
-                      <a href="mailto:swimming@saintpaultennisclub.com" className="text-[#5a7d5d] hover:underline">
+                      <a href="mailto:swimming@saintpaultennisclub.com" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm">
                         swimming@saintpaultennisclub.com
                       </a>
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Club Coordinator</p>
-                      <a href="mailto:sallyhite1@gmail.com" className="text-[#5a7d5d] hover:underline">
+                      <a href="mailto:sallyhite1@gmail.com" className="text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm">
                         sallyhite1@gmail.com
                       </a>
                     </div>
@@ -119,7 +125,11 @@ export default function ContactUsPage() {
             {/* Contact Form */}
             <div>
               {submitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="bg-green-50 border border-green-200 rounded-lg p-8 text-center"
+                >
                   <h3 className="text-xl font-semibold text-green-800 mb-2">Message Sent!</h3>
                   <p className="text-green-700">
                     Thank you for contacting us. We&apos;ll get back to you as soon as possible.
@@ -129,7 +139,7 @@ export default function ContactUsPage() {
                       setSubmitted(false)
                       setFormData({ name: "", email: "", phone: "", subject: "general", message: "" })
                     }}
-                    className="mt-4 text-[#5a7d5d] hover:underline font-medium"
+                    className="mt-4 text-primary hover:underline font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-sm"
                   >
                     Send another message
                   </button>
@@ -141,7 +151,8 @@ export default function ContactUsPage() {
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-1">
-                        Name <span className="text-red-500">*</span>
+                        Name <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <input
                         type="text"
@@ -149,14 +160,16 @@ export default function ContactUsPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full border rounded px-3 py-2"
+                        className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder="Your full name"
+                        disabled={isSubmitting}
                       />
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-1">
-                        Email <span className="text-red-500">*</span>
+                        Email <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <input
                         type="email"
@@ -164,8 +177,9 @@ export default function ContactUsPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full border rounded px-3 py-2"
+                        className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder="your@email.com"
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -178,21 +192,24 @@ export default function ContactUsPage() {
                         id="phone"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full border rounded px-3 py-2"
+                        className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder="(555) 555-5555"
+                        disabled={isSubmitting}
                       />
                     </div>
 
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                        Subject <span className="text-red-500">*</span>
+                        Subject <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <select
                         id="subject"
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full border rounded px-3 py-2"
+                        className="w-full border rounded px-3 py-2 min-h-11 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                        disabled={isSubmitting}
                       >
                         <option value="general">General Inquiry</option>
                         <option value="membership">Membership Information</option>
@@ -206,7 +223,8 @@ export default function ContactUsPage() {
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-1">
-                        Message <span className="text-red-500">*</span>
+                        Message <span className="text-red-500" aria-hidden="true">*</span>
+                        <span className="sr-only">(required)</span>
                       </label>
                       <textarea
                         id="message"
@@ -214,16 +232,25 @@ export default function ContactUsPage() {
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full border rounded px-3 py-2"
+                        className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder="How can we help you?"
+                        disabled={isSubmitting}
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full px-6 py-3 rounded-md text-white font-medium transition-colors bg-[#5a7d5d] hover:bg-[#4a6d4d]"
+                      disabled={isSubmitting}
+                      className="w-full px-6 py-3 min-h-11 rounded-md text-white font-medium transition-colors bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" aria-hidden="true" />
+                          Sending...
+                        </span>
+                      ) : (
+                        "Send Message"
+                      )}
                     </button>
                   </div>
                 </form>
