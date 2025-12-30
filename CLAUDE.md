@@ -23,49 +23,53 @@ Note: This project uses pnpm as the package manager.
 - **Framework**: Next.js 14 with App Router (React 19)
 - **Styling**: Tailwind CSS 4 with CSS variables for theming
 - **UI Components**: shadcn/ui (new-york style) with Radix UI primitives
+- **Backend**: Supabase (auth, database)
 - **Icons**: Lucide React
 - **Fonts**: Inter (sans) and Playfair Display (serif) via next/font
 
 ### Project Structure
 
 ```
-app/                    # Next.js App Router pages
-├── page.tsx            # Homepage (composes Header, Hero, Features, InfoCarousel, Footer)
-├── layout.tsx          # Root layout with fonts and metadata
-├── globals.css         # Tailwind imports and CSS custom properties
-├── about/              # About section pages
-├── tennis/             # Tennis-related pages
-├── swim/               # Swimming-related pages
-├── contact/            # Contact pages
-├── employment/         # Employment pages
-├── membership/         # Membership pages
-├── member-portal/      # Member portal
-├── board-portal/       # Board portal
-└── checkout/           # Checkout flow
+app/
+├── auth/               # Authentication pages (login, register, forgot-password, callback)
+├── member-portal/      # Member-only pages (household, events, reservations, directory)
+├── board-portal/       # Board member admin pages (stats, members, checkin)
+├── about/, tennis/, swim/, contact/, employment/  # Public content pages
 
 components/
-├── ui/                 # shadcn/ui components (Button, Card, Badge, etc.)
-├── header.tsx          # Site header with dropdown navigation
-├── footer.tsx          # Site footer
-├── hero-section.tsx    # Homepage hero
-├── features-section.tsx
-├── info-carousel.tsx
-└── about-section.tsx
+├── ui/                 # shadcn/ui components
+└── *.tsx               # Page-level components (header, footer, hero, etc.)
 
 lib/
-└── utils.ts            # cn() utility for className merging
+├── utils.ts            # cn() utility for className merging
+├── env.ts              # Type-safe environment variable access
+└── supabase/
+    ├── client.ts       # Browser Supabase client (for client components)
+    ├── server.ts       # Server Supabase client (for server components/API routes)
+    └── types.ts        # Database types and table definitions
+
+hooks/
+└── use-dropdown.ts     # Dropdown menu behavior hook
 ```
 
 ### Key Patterns
 
-- **Client Components**: Components using React hooks (useState, useRef, useEffect) must have `"use client"` directive
+- **Client Components**: Components using React hooks must have `"use client"` directive
+- **Supabase Clients**: Use `lib/supabase/client.ts` in client components, `lib/supabase/server.ts` in server components and API routes
+- **Database Types**: All Supabase tables are typed in `lib/supabase/types.ts` - includes profiles, households, reservations, events, etc.
 - **CSS Variables**: Theme colors defined in `app/globals.css` using oklch color space; primary color is green (#5a7d5d)
-- **Path Aliases**: Use `@/components`, `@/lib`, `@/hooks` for imports (configured in components.json)
-- **Images**: Stored in `/public/`, referenced with leading slash (e.g., `/saint-paul-logo.jpeg`)
+- **Path Aliases**: Use `@/components`, `@/lib`, `@/hooks` for imports
+- **Images**: Stored in `/public/`, referenced with leading slash
 
-### Build Configuration
+### Environment Variables
 
-TypeScript and ESLint errors are ignored during builds (configured in `next.config.mjs`). Images are unoptimized for simplicity.
+Required for Supabase:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+### User Roles
+
+Defined in `lib/supabase/types.ts`: `member`, `staff`, `board`, `admin`
 
 ## v0.app Sync
 
