@@ -8,7 +8,7 @@ export default function InstructionPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <div className="relative h-[400px] w-full">
-        <Image src="/sptc_lessons.jpg" alt="Saint Paul Tennis Club pool area" fill className="object-cover" priority />
+        <Image src="/sptc_swim_instruction.jpg" alt="Saint Paul Tennis Club pool area" fill className="object-cover" priority />
       </div>
       <main className="flex-1">
         <div className="container mx-auto px-4 py-16">

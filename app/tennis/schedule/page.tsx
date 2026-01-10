@@ -10,7 +10,7 @@ export default function TennisSchedulePage() {
       <main className="flex-1">
         <div className="relative h-[400px] w-full overflow-hidden">
           <Image
-            src="/images/sptc_balcony.jpg"
+            src="/sptc_tennis_schedule.jpeg"
             alt="Saint Paul Tennis Club tennis courts"
             fill
             className="object-cover"

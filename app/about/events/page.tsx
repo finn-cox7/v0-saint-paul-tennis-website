@@ -228,7 +228,7 @@ export default function EventsPage() {
       <Header />
       <div className="relative h-[400px] w-full">
         <Image
-          src="/images/sptc_taco_night.jpg"
+          src="/sptc_events.jpg"
           alt="Saint Paul Tennis Club social event with members grilling and enjoying community activities"
           fill
           className="object-cover object-top"

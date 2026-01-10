@@ -10,7 +10,7 @@ export default function HoursRulesPage() {
       <main className="flex-1">
         <div className="relative h-[400px] w-full overflow-hidden">
           <Image
-            src="/sptc_pool_ariel_2.jpg"
+            src="/sptc_swim_hours.jpg"
             alt="Saint Paul Tennis Club pool and balcony area with pergola and seating"
             fill
             className="object-cover"

@@ -9,10 +9,10 @@ export default function GregsBioPage() {
       <Header />
       <div className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/images/sptc_balcony.jpg"
+          src="/sptc_greg.jpeg"
           alt="Saint Paul Tennis Club tennis courts"
           fill
-          className="object-cover"
+          className="object-cover object-[center_40%]"
           priority
         />
       </div>

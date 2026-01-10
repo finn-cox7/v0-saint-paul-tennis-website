@@ -9,7 +9,7 @@ export default function LisasBioPage() {
       <Header />
       <div className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/sptc_lisa.jpg"
+          src="/sptc_swim_lisa.jpg"
           alt="Coach Lisa at Saint Paul Tennis Club pool"
           fill
           className="object-cover"
@@ -25,44 +25,15 @@ export default function LisasBioPage() {
             <div className="lg:col-span-2 space-y-6">
               <section>
                 <h3 className="text-xl font-semibold text-foreground mb-3">About Coach Lisa</h3>
-                <p className="text-foreground leading-relaxed">
-                  Lisa Thomas serves as the Aquatics Program Director at Saint Paul Tennis Club, bringing years of
-                  experience in swimming instruction and competitive coaching to our pool deck. Her passion for
-                  teaching swimmers of all ages and abilities has made her a beloved figure at SPTC.
-                </p>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-semibold text-foreground mb-3">Programs & Instruction</h3>
                 <p className="text-foreground leading-relaxed mb-4">
-                  Under Lisa&apos;s direction, the SPTC aquatics program offers comprehensive swimming instruction for
-                  youth and adults. From beginner classes teaching water safety fundamentals to advanced technique
-                  work for competitive swimmers, Lisa oversees all aspects of our swimming education programs.
+                  Lisa Thomas has been a fifth grade teacher at Nativity of Our Lord Catholic School for over 20 years,
+                  in addition to coaching their swim team. Since 2020, she has served as head coach for Cretin Derham Hall
+                  High School&apos;s Girls Swim and Dive Team.
                 </p>
                 <p className="text-foreground leading-relaxed">
-                  Lisa personally teaches private and semi-private lessons, providing individualized attention
-                  to help swimmers reach their goals whether they&apos;re learning to float for the first time
-                  or refining their competitive strokes.
-                </p>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-semibold text-foreground mb-3">Swim & Dive Team</h3>
-                <p className="text-foreground leading-relaxed">
-                  As head coach of the SPTC Swim and Dive Team, Lisa leads a program with over 50 years of tradition.
-                  The team competes in the Inter-Club Conference, participating in weekly meets throughout the summer
-                  season. Lisa&apos;s coaching philosophy emphasizes skill development, teamwork, and a love for the sport
-                  while preparing swimmers for competitive success.
-                </p>
-              </section>
-
-              <section>
-                <h3 className="text-xl font-semibold text-foreground mb-3">Teaching Philosophy</h3>
-                <p className="text-foreground leading-relaxed">
-                  Lisa believes that every swimmer can achieve their goals with proper instruction, encouragement,
-                  and practice. Her classes focus on building confidence in the water while developing proper
-                  technique. Whether working with a nervous beginner or a seasoned competitor, Lisa creates
-                  a supportive environment where swimmers can thrive.
+                  In 2022, Lisa took over as the Aquatics Program Director and Swim Team Head Coach at Saint Paul Tennis Club.
+                  Her extensive experience in both education and competitive swimming coaching brings a unique perspective
+                  to our aquatics program, helping swimmers of all ages and abilities achieve their goals.
                 </p>
               </section>
             </div>
@@ -75,12 +46,6 @@ export default function LisasBioPage() {
                     <p className="text-sm text-muted-foreground">Email</p>
                     <a href="mailto:swimming@saintpaultennisclub.com" className="text-[#5a7d5d] hover:underline font-medium">
                       swimming@saintpaultennisclub.com
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Personal Email</p>
-                    <a href="mailto:coachlisathomas@gmail.com" className="text-[#5a7d5d] hover:underline font-medium">
-                      coachlisathomas@gmail.com
                     </a>
                   </div>
                   <div>

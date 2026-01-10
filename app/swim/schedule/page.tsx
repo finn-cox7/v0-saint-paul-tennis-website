@@ -9,7 +9,7 @@ export default function SchedulePage() {
       <main className="flex-1">
         <div className="relative h-[400px] w-full overflow-hidden">
           <Image
-            src="/sptc_gary_practice.webp"
+            src="/sptc_swim_schedule.webp"
             alt="Saint Paul Tennis Club pool and balcony area with pergola and seating"
             fill
             className="object-cover"

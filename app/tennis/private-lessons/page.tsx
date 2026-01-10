@@ -24,10 +24,10 @@ export default function TennisPrivateLessonsPage() {
       <Header />
       <div className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/images/sptc_balcony.jpg"
+          src="/sptc_tennis_lessons.png"
           alt="Saint Paul Tennis Club tennis courts"
           fill
-          className="object-cover"
+          className="object-cover object-[center_5%]"
           priority
         />
       </div>

@@ -10,7 +10,7 @@ export default function ClubOverviewPage() {
       <main className="flex-1">
         <div className="relative h-[400px] w-full overflow-hidden">
           <Image
-            src="/images/sptc_balcony.jpg"
+            src="/sptc_overview.jpg"
             alt="Saint Paul Tennis Club pool and balcony area with pergola and seating"
             fill
             className="object-cover"

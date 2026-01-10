@@ -25,10 +25,10 @@ export default function PrivateLessonsPage() {
       <Header />
       <div className="relative h-[400px] w-full">
         <Image
-          src="/images/sptc_balcony.jpg"
+          src="/sptc_swim_private.jpeg"
           alt="Saint Paul Tennis Club pool area"
           fill
-          className="object-cover"
+          className="object-cover object-[center_40%]"
           priority
         />
       </div>

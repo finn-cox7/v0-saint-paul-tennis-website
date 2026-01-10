@@ -45,10 +45,10 @@ export default function SwimTeamInfoPage() {
       {/* Hero Image */}
       <div className="relative h-[400px]">
         <Image
-          src="/images/sptc_balcony.jpg"
+          src="/sptc_swim_team.png"
           alt="Saint Paul Tennis Club pool area"
           fill
-          className="object-cover object-top"
+          className="object-cover object-[center_90%]"
           priority
         />
       </div>
